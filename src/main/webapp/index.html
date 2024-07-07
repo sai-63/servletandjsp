@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management</title>
+</head>
+<body>
+<center>
+    <h3>Employee Management Page</h3>
+    <!-- Create Employee Form -->
+    <form name="create" method="post" action="http://localhost:3031/web_app/Employee">
+        <h4>Create Employee</h4>
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input type="text" name="salary"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Create">
+    </form>
+    <br/>
+    <!-- Read Employee Form -->
+    <form name="read" method="get" action="http://localhost:3031/web_app/Employee">
+        <h4>Read Employee</h4>
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Read">
+    </form>
+    <br/>
+    <!-- Update Employee Form -->
+    <form name="update" method="post" action="http://localhost:3031/web_app/Employee" onsubmit="return confirm('Are you sure you want to update?')">
+        <input type="hidden" name="_method" value="put">
+        <h4>Update Employee</h4>
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Salary:</td>
+                <td><input type="text" name="salary"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Update">
+    </form>
+    <br/>
+    <!-- Delete Employee Form -->
+    <form name="delete" method="post" action="http://localhost:3031/web_app/Employee" onsubmit="return confirm('Are you sure you want to delete?')">
+        <input type="hidden" name="_method" value="delete">
+        <h4>Delete Employee</h4>
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+        </table>
+        <input type="submit" value="Delete">
+    </form>
+</center>
+</body>
+</html>
