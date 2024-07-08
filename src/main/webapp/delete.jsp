@@ -1,25 +1,24 @@
 <%@ page import="java.sql.*" %>
 <%
     String username = request.getParameter("username");
-    String salary = request.getParameter("salary");
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "sai2004");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/userdb", "root", "root");
 
-        String updateQuery = "UPDATE employee SET salary = ? WHERE name = ?";
-        PreparedStatement pst = con.prepareStatement(updateQuery);
-        pst.setString(1, salary);
-        pst.setString(2, username);
+        String deleteQuery = "DELETE FROM employee WHERE name = ?";
+        PreparedStatement pst = con.prepareStatement(deleteQuery);
+        pst.setString(1, username);
 
         int rows = pst.executeUpdate();
         if (rows > 0) {
-            out.println("Employee updated successfully");
+            out.println("Employee deleted successfully");
         } else {
-            out.println("Error updating employee or employee does not exist");
+            out.println("Error deleting employee or employee does not exist");
         }
         con.close();
     } catch (Exception e) {
         e.printStackTrace(new java.io.PrintWriter(out));
     }
 %>
+
